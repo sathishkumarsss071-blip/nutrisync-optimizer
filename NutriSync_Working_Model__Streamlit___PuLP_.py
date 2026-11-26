@@ -69,7 +69,7 @@ def solve_meal_plan(pantry_df: pd.DataFrame, cal_goal: float, prot_goal: float, 
 
     # Decision Variables: Daily servings (in 100g units)
     qty = {
-        i: pulp.LpVariable(f"qty_{i}", lowBound=0, upBound=pantry_df.loc[i, "Max_Servings"])
+        i: pulp.LpVariable(f"qty_{i}", lowBound=0, upBound=float(pantry_df.loc[i, "Max_Servings"]))
         for i in pantry_df.index
     }
 
